@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>등록증만들기</title>
+    <link rel="stylesheet" href="style/style_copy.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Sharp|Material+Icons+Two+Tone|Material+Icons+Outlined" rel="stylesheet">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/html2canvas.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="all_wrap">
+            <!-- 왼쪽메뉴 시작 -->
+            <div class="menu menu_left">
+                <div class="choice"><span class="material-icons-outlined" >face</span>
+                    <div class="arrow">
+                        <div class="arrow_L"><img src="sorce/samll_arrow_L.png" onclick="hairSlide(0)"> </div>
+                        <div class="arrow_R"><img src="sorce/small_arrow_R.png" onclick="hairSlide(1)"></div>
+                    </div>
+                </div>
+                <div class="choice"><span class="material-icons-outlined">expand_less</span>
+                    <div class="arrow">
+                        <div class="arrow_L"><img src="sorce/samll_arrow_L.png" onclick="browSlide(0)"> </div>
+                        <div class="arrow_R"><img src="sorce/small_arrow_R.png" onclick="browSlide(1)"></div>
+                    </div>
+                </div>
+                <div class="choice"><span class="material-icons-outlined">visibility</span>
+                    <div class="arrow">
+                        <div class="arrow_L"><img src="sorce/samll_arrow_L.png" onclick="eyesSlide(0)"> </div>
+                        <div class="arrow_R"><img src="sorce/small_arrow_R.png" onclick="eyesSlide(1)"></div>
+                    </div>
+                </div>
+                
+                <!-- 미디어쿼리 숨겨진 아이콘 -->
+                <div class="choice"><span class="material-icons-outlined">mood</span>
+                    <div class="arrow">
+                        <div class="arrow_L"><img src="sorce/samll_arrow_L.png" onclick="lipsSlide(0)"> </div>
+                        <div class="arrow_R"><img src="sorce/small_arrow_R.png" onclick="lipsSlide(1)"></div>
+                    </div>
+                </div>
+                <div class="choice"><span class="material-icons-outlined">checkroom</span>
+                    <div class="arrow">
+                        <div class="arrow_L"><img src="sorce/samll_arrow_L.png" onclick="clothSlide(0)"> </div>
+                        <div class="arrow_R"><img src="sorce/small_arrow_R.png" onclick="clothSlide(1)"></div>
+                    </div>
+                </div>
+                <div class="choice"><span class="material-icons-outlined">auto_awesome</span>
+                    <div class="arrow">
+                        <div class="arrow_L"><img src="sorce/samll_arrow_L.png" onclick=""> </div>
+                        <div class="arrow_R"><img src="sorce/small_arrow_R.png" onclick=""></div>
+                    </div>
+                </div>
+                <!-- <div class="choice"><span class="material-icons-outlined">yard</span>
+                    <div class="arrow">
+                        <div class="arrow_L"><img src="sorce/samll_arrow_L.png" onclick=""> </div>
+                        <div class="arrow_R"><img src="sorce/small_arrow_R.png" onclick=""></div>
+                    </div>
+                </div> -->
+            </div>
+            <!-- 왼쪽메뉴 끝 -->
+
+
+            <div class="main_wrap">
+                
+                <div class="card_wrap">
+                    <img class="big_arrow_L" src="sorce/big_arrow_L.png" alt="">
+                    <div id="card">
+                        <input type="text" class="name" id="name" placeholder="이름을 입력해주세요" maxlength="10">
+                        <input type="text" class="birth" id="birth" placeholder="ex) 970120" maxlength="10">
+                        <input type="text" class="date" id="date" placeholder="등롞번호" maxlength="10">
+                        <!-- 옷입히기 소스 -->
+                        <div class="card_human">
+                            <img class="human human_body" src="sorce/base.png">
+                            <img id="hair" src="sorce/hair01.png" alt="">
+                            <img id="brows" src="sorce/brows01.png" alt="">
+                            <img id="eyes" src="sorce/eyes01.png" alt="">
+                            <img id="lips" src="sorce/lips01.png" alt="">
+                            <img id="cloth" src="sorce/cloth01.png" alt="">
+                        </div>
+
+                        <!-- 옷입히기 소스 끝 -->
+                        
+                        <!-- 카드슬라이드 스와이퍼 시작-->
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="sorce/card/gondew.jpg"></div>
+                                <div class="swiper-slide"><img src="sorce/card/wanza.jpg"></div>
+                                <div class="swiper-slide"><img src="sorce/card/elf.jpg"></div>
+                                <div class="swiper-slide"><img src="sorce/card/angel.jpg"></div>
+                                <div class="swiper-slide"><img src="sorce/card/fox.jpg"></div>
+                                <div class="swiper-slide"><img src="sorce/card/outssa.jpg"></div>
+                                <div class="swiper-slide"><img src="sorce/card/genius.jpg"></div>
+                                <div class="swiper-slide"><img src="sorce/card/cat.jpg"></div>
+                            </div>
+                        </div>
+                        <!-- 카드슬라이드 스와이퍼 끝 -->
+                        <a id="target" style="display: none;"></a>
+                    </div>
+                    <img class="big_arrow_R" src="sorce/big_arrow_R.png" alt="">
+                </div>
+                <button  onclick="download()">저장하기</button>
+                <!-- <div class="card_bg"><img src="/sorce/card_bg.png" style="width:986px"></div> -->
+            </div>
+
+            <!-- 오른쪽메뉴 시작 -->
+            <div class="menu menu_right">
+                <div class="choice"><span class="material-icons-outlined">mood</span>
+                    <div class="arrow">
+                        <div class="arrow_L"><img src="sorce/samll_arrow_L.png" onclick="lipsSlide(0)"> </div>
+                        <div class="arrow_R"><img src="sorce/small_arrow_R.png" onclick="lipsSlide(1)"></div>
+                    </div>
+                </div>
+                <div class="choice"><span class="material-icons-outlined">checkroom</span>
+                    <div class="arrow">
+                        <div class="arrow_L"><img src="sorce/samll_arrow_L.png" onclick="clothSlide(0)"> </div>
+                        <div class="arrow_R"><img src="sorce/small_arrow_R.png" onclick="clothSlide(1)"></div>
+                    </div>
+                </div>
+                <div class="choice"><span class="material-icons-outlined">auto_awesome</span>
+                    <div class="arrow">
+                        <div class="arrow_L"><img src="sorce/samll_arrow_L.png" onclick=""> </div>
+                        <div class="arrow_R"><img src="sorce/small_arrow_R.png" onclick=""></div>
+                    </div>
+                </div>
+                <!-- <div class="choice"><span class="material-icons-outlined">yard</span>
+                    <div class="arrow">
+                        <div class="arrow_L"><img src="sorce/samll_arrow_L.png" onclick=""> </div>
+                        <div class="arrow_R"><img src="sorce/small_arrow_R.png" onclick=""></div>
+                    </div>
+                </div> -->
+            </div>
+            <!-- 오른쪽메뉴 끝 -->
+        </div>
+    </div>
+    <div class="bg"></div>
+
+
+
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            speed : 10,
+            effect: "fade",
+            touchRatio: 0,//드래그 금지
+            navigation: {
+                nextEl: ".big_arrow_R",
+                prevEl: ".big_arrow_L",
+            },
+        });
+    </script>
+</body>
+<script src="js/script.js"></script>
+
+</html>
