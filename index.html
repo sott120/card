@@ -13,7 +13,7 @@
     <script src="js/html2canvas.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 </head>
-<body>
+<body><div class="blind"><div>화면이 너무 작아요! 기기를 가로로 돌려주세요.</div></div>
     <div class="container">
         <div class="all_wrap">
             <!-- 왼쪽메뉴 시작 -->
@@ -67,7 +67,7 @@
 
 
             <div class="main_wrap">
-                
+                <!--<div class="card_bg"><img src="/sorce/card_bg.png"></div>-->
                 <div class="card_wrap">
                     <img class="big_arrow_L" src="sorce/big_arrow_L.png" alt="">
                     <div id="card">
@@ -104,8 +104,12 @@
                     </div>
                     <img class="big_arrow_R" src="sorce/big_arrow_R.png" alt="">
                 </div>
+                <!-- 미디어쿼리 숨겨진 스와이퍼 버튼 -->
+                <div class="small_swiper_btn">    
+                    <img class="big_arrow_L" src="sorce/big_arrow_L.png" alt="">
+                    <img class="big_arrow_R" src="sorce/big_arrow_R.png" alt="">
+                </div>
                 <button  onclick="download()">저장하기</button>
-                <!-- <div class="card_bg"><img src="/sorce/card_bg.png" style="width:986px"></div> -->
             </div>
 
             <!-- 오른쪽메뉴 시작 -->
@@ -138,9 +142,6 @@
             <!-- 오른쪽메뉴 끝 -->
         </div>
     </div>
-    <div class="bg"></div>
-
-
 
 
     <script>

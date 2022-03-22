@@ -44,26 +44,118 @@
 
 //화면 이미지로 저장
 function download(){
-    let name = document.getElementById('name');
-    let birth = document.getElementById('birth');
-    let date = document.getElementById('date');
-    name.style.top = "31.4%";
-    birth.style.top = "47.4%";
-    date.style.top = "61.6%";
+    
+    if(window.innerWidth > 1100) {
+        let name = document.getElementById('name');
+        let birth = document.getElementById('birth');
+        let date = document.getElementById('date');   
+        name.style.top = "31.4%";
+        birth.style.top = "47.4%";
+        date.style.top = "61.6%";
 
-    html2canvas(document.querySelector("#card")).then(canvas => {
-      
-    // document.body.appendChild(canvas)
-    // $('body').append('<img src="' + canvas.toDataURL("image/jpeg") + '"/>');
-    let el = document.getElementById("target");
+        html2canvas(document.querySelector("#card")).then(canvas => {
+            if(window.innerWidth < 1024) {
+                document.querySelector("#card").setAttribute("style", "width=800px")
+                }  
+        let el = document.getElementById("target");
 
-    el.href = canvas.toDataURL("image/jpeg");
-    el.download = "등록증.jpg";
-    el.click();  
-})
-name.style.top = "29.5%";
-birth.style.top = "45.5%";
-date.style.top = "60%";
+        el.href = canvas.toDataURL("image/jpeg");
+        el.download = "등록증.jpg";
+        el.click();  
+        })
+    name.style.top = "29.5%";
+    birth.style.top = "45.5%";
+    date.style.top = "60%";
+
+    } else if(window.innerWidth <= 1100 && window.innerWidth > 882){
+        let name = document.getElementById('name');
+        let birth = document.getElementById('birth');
+        let date = document.getElementById('date');   
+        name.style.top = "31%";
+        birth.style.top = "47%";
+        date.style.top = "61%";
+    
+        html2canvas(document.querySelector("#card")).then(canvas => {
+            if(window.innerWidth < 1024) {
+                document.querySelector("#card").setAttribute("style", "width=800px")
+                }  
+        let el = document.getElementById("target");
+    
+        el.href = canvas.toDataURL("image/jpeg");
+        el.download = "등록증.jpg";
+        el.click();  
+        })
+    name.style.top = "30%";
+    birth.style.top = "46%";
+    date.style.top = "60%";
+    
+    } else if(window.innerWidth <= 882 && window.innerWidth > 734){
+        let name = document.getElementById('name');
+        let birth = document.getElementById('birth');
+        let date = document.getElementById('date');   
+        name.style.top = "30%";
+        birth.style.top = "46%";
+        date.style.top = "60%";
+    
+        html2canvas(document.querySelector("#card")).then(canvas => {
+            if(window.innerWidth < 1024) {
+                document.querySelector("#card").setAttribute("style", "width=800px")
+                }  
+        let el = document.getElementById("target");
+    
+        el.href = canvas.toDataURL("image/jpeg");
+        el.download = "등록증.jpg";
+        el.click();  
+        })
+    name.style.top = "29%";
+    birth.style.top = "45%";
+    date.style.top = "59%";
+    
+    } else if(window.innerWidth <= 734 && window.innerWidth > 644) {
+        let name = document.getElementById('name');
+        let birth = document.getElementById('birth');
+        let date = document.getElementById('date');   
+        name.style.top = "29%";
+        birth.style.top = "45%";
+        date.style.top = "59%";
+    
+        html2canvas(document.querySelector("#card")).then(canvas => {
+            if(window.innerWidth < 1024) {
+                document.querySelector("#card").setAttribute("style", "width=800px")
+                }  
+        let el = document.getElementById("target");
+    
+        el.href = canvas.toDataURL("image/jpeg");
+        el.download = "등록증.jpg";
+        el.click();  
+        })
+    name.style.top = "27%";
+    birth.style.top = "43%";
+    date.style.top = "57%";
+
+    } else if(window.innerWidth <= 644) {
+        let name = document.getElementById('name');
+        let birth = document.getElementById('birth');
+        let date = document.getElementById('date');   
+        name.style.top = "28%";
+        birth.style.top = "44%";
+        date.style.top = "58%";
+    
+        html2canvas(document.querySelector("#card")).then(canvas => {
+            if(window.innerWidth < 1024) {
+                document.querySelector("#card").setAttribute("style", "width=800px")
+                }  
+        let el = document.getElementById("target");
+    
+        el.href = canvas.toDataURL("image/jpeg");
+        el.download = "등록증.jpg";
+        el.click();  
+        })
+    name.style.top = "26%";
+    birth.style.top = "42%";
+    date.style.top = "56%";
+
+    }
 };
 
 
