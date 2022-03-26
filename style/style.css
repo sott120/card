@@ -1,3 +1,4 @@
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -38,6 +39,8 @@ body {
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    background-image: url(../sorce/bg.jpg);
+    background-size: 1920px;
 }
 
 ol, ul {
@@ -58,25 +61,59 @@ table {
 /* 리셋 끝 */
   
 
-body{
+/* html body{
     width: 100%;
     height: 100%;
-    }    
+    }     */
+
+.blind{
+    position: fixed;
+    z-index: 100;
+    top:0px;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: #8f6ab7;
+    display: none;
+}
+
+.blind > div{
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 2;
+    color:#fff;
+    text-align: center;
+    word-break: keep-all;
+    width: 80%;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+}
+
+
+
+
+@media screen and (max-width: 560px) {
+    .blind{
+        display: block;
+    }
+}
 
 .container{
-    width: 100%;
-    height: 500px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    
+    /* width: 100%;
+    height: 100%; */
+    display: flex;
+    justify-content: center; 
+    flex-direction: column
 }
 
 .all_wrap{
     display: flex;
     justify-content: space-around;
-    height: 100%;
-
+    align-items: center;
+    height: 100vh;
+    margin: auto 0;
 }
 
 
@@ -86,7 +123,6 @@ body{
     flex-direction: column; 
 
 }
-
 
 .choice{
     width: 80px; height: 80px;
@@ -103,6 +139,10 @@ body{
     margin-top: 0px;
 }
 
+.menu_left > .choice:nth-child(n+4){
+    display: none;
+}
+
 
 .choice_click{
     background: #8E6AB7;
@@ -114,9 +154,6 @@ body{
 .arrow {
     display: none;
     position: relative;
-
-
-
 }
 
 /*화살표 활성화 class추가*/
@@ -128,44 +165,62 @@ body{
 .arrow_L{
     position: absolute;
     display: block;
-    transform: translateY(-50%);
+    transform: translateY(-80%);
     left: -21px;
     margin-left: -8px;
 }
 .arrow_R{
     position: absolute;
     display: block;
-    transform: translateY(-50%);
+    transform: translateY(-80%);
     left:80px;
     margin-left: 8px;
 }
 
+.main_wrap{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card_bg{
+    image-rendering: -webkit-optimize-contrast;
+    position: absolute;
+    z-index: -20;
+    margin-top: -63px;
+    
+}
+
+.card_bg_small{
+    display: none;
+}
+
 
 .card_wrap{
-    /* height: 100%; */
+    width: 1080px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 #card{
     position: relative;
-    margin: 0 30px;
-    overflow: hidden;
 }
 
 
-#card > input{
 
+#card > input {
+    line-height: 70px;
     font-size: 1.8rem;
-
 }
+
 
 .name{
     
     position: absolute;
     z-index: 10;
     top: 29.5%;
-    left: 50%;
+    left: 50.5%;
     transform: translateX(-16%);
     border: none;
     width: 297px;
@@ -273,45 +328,44 @@ body{
     
 }
 
-.card_bg{
-    image-rendering: -webkit-optimize-contrast;
-    position: relative;
-    left: 61px;
-    z-index: -9;
-    transform: translateY(-103%);
-}
+
 /* 이거 카드배경 높이를 딱 맞추는 방법 모르겠음 */
 
-.big_arrow_L .big_arrow_R{  
-  max-height: 44px;
+.small_swiper_btn{
+    display:none;
+    margin-top: 1em;
 }
+
+@media screen and (max-width: 1100px){
+    .small_swiper_btn{
+    display: block;
+    }
+}
+
 
 /* 버튼 */
 button{
+    margin: 2em 0;
     position: relative;
-    left: 50%;
-    transform : translateX(-50%);
-    top: 100px;
-    width: 140px;
-    height: 45px;
-    font-size: 12px;
+    padding: 1em;
+    font-size: 1rem;
     letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: #fff;
+    font-weight: 600;
+    color:#57416D;
+    background-color: rgb(221, 221, 221);
     border: none;
     border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
+    
 }
 
 button:hover {
     background-color: #8f6ab7;
     box-shadow: 0px 15px 20px rgba(58, 18, 82, 0.4);
     color: #fff;
-    
   }
 
 
@@ -332,11 +386,51 @@ button:hover {
 }
 
 
-.bg{width: 100%; height: 100%; position: absolute; z-index: -10; top:0px; left: 0px; background-color: #eee;}
-
-
 @media screen and (max-width: 1420px) {
-  
+    .all_wrap{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .all_wrap > * {
+        margin: 50px 0;
+    }
+
+    .menu_left > .choice:nth-child(n+4){
+        display: block;
+    }
+
+    .menu_right > .choice{
+        display:none;
+    }
+
+    .menu{
+        display: flex; 
+        justify-content: center; 
+        flex-direction: row;
+        align-items: flex-start;
+        
+    }
+
+    .choice{  
+        margin-top: 0px;
+        margin-left: 40px;
+    }
+
+    .choice:nth-child(1){
+        margin-left: 0px;
+    }
+    
+}
+
+
+/* 1100 882 734 644 */
+
+@media screen and (max-width: 1100px) {
+
+
 
     .container {
         width: 100%;
@@ -347,12 +441,67 @@ button:hover {
     }
 
     .all_wrap{
-        
+        display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
+        justify-content: flex-start;
     }
 
+    .all_wrap > *{
+        margin: 20px 0;
+    }
+
+    .main_wrap{
+        width:100%;
+    }
+
+    .card_bg{
+        display: none;
+    }
+
+    .card_bg_small{
+        display: block;
+        width: 100%;
+        margin-bottom: -7px;
+    }
+
+    .card_bg_small > img{
+        width: 100%;
+    }
+
+
+    .card_wrap {
+        width:100%;
+        flex-direction: column;
+    }
+
+    .card_wrap > img{
+        display: none;
+    }
+    
+    #card{
+        width: 100%;
+    }
+    
+    .name{
+        width: 30%;
+        top: 30%;
+    }
+
+    .birth{
+        width: 25%;
+        top: 46%
+    }
+
+    .date{
+        width: 25%;
+        top: 60%;
+    }
+    
+    .swiper, .swiper-slide, .swiper-slide img {
+        width: 100% !important;
+        height: 100%;
+    }
 
     .menu{
         display: flex; 
@@ -362,7 +511,7 @@ button:hover {
     }
 
 
-    .menu_left{
+    /* .menu_left{
         position: relative;
         order: 0;
         margin-top: 50px;
@@ -377,7 +526,17 @@ button:hover {
     .main_wrap{
         order : 2;
         margin-top: 70px;
+    } */
+
+    .menu_left > .choice:nth-child(n+4){
+        display: none;
     }
+
+    .menu_right > .choice{
+        display:block;
+    }
+
+
 
     .choice{  
         margin-top: 0px;
@@ -388,20 +547,83 @@ button:hover {
         margin-left: 0px;
     }
 
+
+
+    .card_human{
+        width: 100%;
+    }
+    
+    #card > div.card_human img{
+        width: 31%;
+        top: 6.7%;
+        left: 5.5%;
+    }
+
     .download-btn{
         top: 5%;
+    }
+
+}
+
+@media screen and (max-width: 882px) {
+
+    #card > input{
+        font-size: 1.5rem;
+    }
+
+    .name{
+        top: 29%;
+    }
+
+    .birth{
+        top: 45%
+    }
+
+    .date{
+        top: 59%;
+    }
+}
+
+@media screen and (max-width: 734px) {
+
+    #card > input{
+        font-size: 1.3rem;
+    }
+    .name{
+        top: 27%;
+    }
+
+    .birth{
+        top: 43%
+    }
+
+    .date{
+        top: 57%;
     }
 }
 
 
-/* 1199 757 480 */
+@media screen and (max-width: 644px) {
 
-/* @media screen and (max-width: 1110px) {
+    #card > div.card_human img{
+        top: 6.9%;
+    }
 
+    #card > input{
+        font-size: 1.1rem;
+    }
 
+    .name{
+        top: 26%;
+    }
 
+    .birth{
+        top: 42%
+    }
 
+    .date{
+        top: 56%;
+    }
 
+}
 
-
-} */
